@@ -17,7 +17,7 @@ object Main {
         "doing?"))
       .append (new StringTypePrintOutput)
       .build()
-      .startMock()
+      .start(args)
   }
 }
 

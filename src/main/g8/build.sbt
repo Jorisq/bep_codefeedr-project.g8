@@ -12,6 +12,8 @@ organization := "$organization$"
 
 ThisBuild / scalaVersion := "$scala_version$"
 
+val codefeedrVersion = "$codefeedr_version$"
+
 val flinkVersion = "1.4.2"
 
 val flinkDependencies = Seq(
@@ -27,7 +29,7 @@ lazy val root = (project in file(".")).
     libraryDependencies ++= flinkDependencies ++ codefeedrDependencies
   )
 
-assembly / mainClass := Some("$organization$.Job")
+assembly / mainClass := Some("$organization$.Main")
 
 // make run command include the provided dependencies
 Compile / run  := Defaults.runTask(Compile / fullClasspath,
