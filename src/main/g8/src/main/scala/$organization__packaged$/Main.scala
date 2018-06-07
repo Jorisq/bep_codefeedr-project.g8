@@ -15,20 +15,18 @@ object Main {
         "are\n" +
         "you\n" +
         "doing?"))
-      .append (new StringTypePrintOutput)
+      .append (new WordCountOutput)
       .build()
       .start(args)
   }
 }
 
-class StringTypePrintOutput extends OutputStage[StringType] {
+class WordCountOutput extends OutputStage[StringType] {
   override def main(source: DataStream[StringType]): Unit = {
-    source.addSink(new StringTypePrintSink)
-  }
-}
-
-class StringTypePrintSink extends SinkFunction[StringType] {
-  override def invoke(item: StringType): Unit = {
-    println(item.value)
+    source
+      .map { item => (item.value, 1) }
+      .keyBy(0)
+      .sum(1)
+      .print()
   }
 }
