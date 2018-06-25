@@ -1,7 +1,6 @@
 package $organization$
 
-import org.apache.flink.streaming.api.functions.sink.SinkFunction
-import org.apache.flink.streaming.api.scala.DataStream
+import org.apache.flink.streaming.api.scala._
 import org.codefeedr.pipeline.PipelineBuilder
 import org.codefeedr.stages.OutputStage
 import org.codefeedr.stages.utilities.{StringInput, StringType}
