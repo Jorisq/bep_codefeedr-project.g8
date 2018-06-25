@@ -9,12 +9,7 @@ import org.codefeedr.stages.utilities.{StringInput, StringType}
 object Main {
   def main(args: Array[String]): Unit = {
     new PipelineBuilder()
-      .append(new StringInput("Hello\n" +
-        "World!\n" +
-        "How\n" +
-        "are\n" +
-        "you\n" +
-        "doing?"))
+      .append(new StringInput("Hello World! How are you doing?"))
       .append (new WordCountOutput)
       .build()
       .start(args)

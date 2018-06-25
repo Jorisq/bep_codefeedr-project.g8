@@ -17,8 +17,10 @@ val codefeedrVersion = "$codefeedr_version$"
 val flinkVersion = "1.4.2"
 
 val flinkDependencies = Seq(
-  "org.apache.flink" %% "flink-scala" % flinkVersion % "compile",
-  "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % "compile")
+  // When running the project locally use `Compile`
+  // When running sbt assembly use `Provided`
+  "org.apache.flink" %% "flink-scala" % flinkVersion % Provided,
+  "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % Provided)
 
 val codefeedrDependencies = Seq(
   "org.codefeedr" %% "codefeedr-core" % "0.1-SNAPSHOT"
